@@ -2,7 +2,7 @@
 
 const Relevanttwo = () => {
     return (
-        <div>
+        <div className="bg-blue-50">
             <div className="w-[80%] mx-auto">
                 <h1 className="text-[#0A303A] text-4xl font-bold text-center py-5">Hear from our customers</h1>
                 <p className="text-gray-500 text-center text-lg pb-6">Hear from the people who are satisfied by our service</p>
