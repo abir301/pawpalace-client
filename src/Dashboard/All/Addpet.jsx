@@ -20,7 +20,7 @@ const Addpet = () => {
     const timeser = `${now.getDate()}/${now.getMonth() + 1}`;
 
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm();
+    const { register, handleSubmit, control, formState: { errors } ,reset } = useForm();
 
     const categories = [
         { value: "cat", label: "Cat" },
@@ -57,6 +57,7 @@ const Addpet = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
+                    reset();
                     toast.success("Pet added successfully!")
                 }
                 else {

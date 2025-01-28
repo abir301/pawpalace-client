@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { authContext } from "../../Authprovider";
 import {
     useReactTable,
@@ -113,13 +113,15 @@ const MyAddedPets = () => {
                 header: "Actions",
                 cell: ({ row }) => (
                     <div className="flex gap-2">
+                        <Link to={`/dashboard/update-pet/${row.original._id}`}>                        
                         <button
-                            className="bg-[#0A303A] text-white py-1 px-3 rounded-lg"
-                            onClick={() => alert(`updating`)}
+                            className="bg-[#0A303A] text-white px-3 py-3 rounded-lg"
+                        
                         >
-                            <FaPen className="size-5" />
-                        </button>
-                        <button
+                            <FaPen className="size-5 " />
+                        </button></Link>
+
+                        <button  
                             className="bg-[#0A303A] text-white px-3 py-1 rounded-lg"
                             onClick={() => handleDelete(row.original._id)}
                         >
