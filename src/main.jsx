@@ -18,6 +18,7 @@ import Mydonationcamp from './Dashboard/All/Mydonationcamp.jsx';
 import Mydonations from './Dashboard/All/Mydonations.jsx';
 import Dashtext from './Dashboard/Dashtext.jsx';
 import Updatepet from './Dashboard/All/Updatepet.jsx';
+import Petdetails from './Components/Petdetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
       {
         path: 'petlisting',
         element: <Petlisting />,
+        loader: () => fetch(`http://localhost:5000/addpet`)
+      },
+      {
+        path: 'petlisting/:id',
+        element: <Petdetails />,
+        loader: ({params}) => fetch(`http://localhost:5000/addpet/${params.id}`)
       },
       {
         path: 'donationcampaign',
