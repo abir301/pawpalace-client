@@ -1,12 +1,14 @@
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { authContext } from "../Authprovider";
 
 const Petdetails = () => {
     const pet = useLoaderData();
     const [showModal, setShowModal] = useState(false);
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
+    const { user } = useContext(authContext);
 
     const handleAdopt = (e) => {
         e.preventDefault();
@@ -18,6 +20,7 @@ const Petdetails = () => {
             petImage: pet.image,
             adopterName: pet.username,
             adopterEmail: pet.useremail,
+            ownerEmail: user.email,
             phone,
             address,
             timestamp: new Date().toISOString(),

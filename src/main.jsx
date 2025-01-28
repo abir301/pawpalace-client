@@ -69,11 +69,12 @@ const router = createBrowserRouter([
       {
         path: 'adoption-requests',
         element: <Adoptionreq />,
+        loader: () => fetch(`http://localhost:5000/adoptreq`)
       },
       {
         path: 'mypets',
         element: <Myaddedpets />,
-        loader: () => fetch(`http://localhost:5000/addpet`)
+        loader: () => fetch(`http://localhost:5000/addpet`)   
       },
       {
         path: 'create-donation',
