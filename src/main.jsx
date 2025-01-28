@@ -6,6 +6,8 @@ import Home from './Home.jsx';
 import Homecontent from './HomeContent/Homecontent.jsx';
 import Petlisting from './Components/Petlisting.jsx';
 import Donationcampaign from './Components/Donationcampaign.jsx';
+import Login from './Components/Login.jsx';
+import Register from './Components/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,12 +19,12 @@ const router = createBrowserRouter([
         element: <Homecontent />,
       },      
       {
-        path: '/',
-        element: <Homecontent />,
+        path: '/login',
+        element: <Login />,
       },      
       {
-        path: '/',
-        element: <Homecontent />,
+        path: '/register',
+        element: <Register />,
       },
       {
         path: '/petlisting',
