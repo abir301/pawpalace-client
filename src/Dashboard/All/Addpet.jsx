@@ -6,8 +6,10 @@ import Select from "react-select";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+
+
 const Addpet = () => {
-    const [adopted, setAdopted] = useState(false)
+
     const { user } = useContext(authContext);
     const useremail = user?.email;
     const username = user?.displayName;
@@ -42,7 +44,7 @@ const Addpet = () => {
             timeser,
             adopted: false,
         };
-        console.log("Pet Data:", petData);
+        console.log(petData);
 
         fetch('http://localhost:5000/addpet', {
             method: 'POST',
@@ -173,7 +175,7 @@ return (
                             },
                         })}
                         placeholder="Enter a detailed description"
-                        className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-2 border rounded-md"
                     ></textarea>
                     {errors.long && <p className="text-red-500 text-sm">{errors.long.message}</p>}
                 </div>

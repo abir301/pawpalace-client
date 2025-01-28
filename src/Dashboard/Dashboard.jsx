@@ -6,10 +6,10 @@ import { Toaster } from "react-hot-toast";
 const Dashboard = () => {
     return (<>
         <Toaster></Toaster>
-        <div className="flex gap-10">
+        <div className="flex">
 
             <Sidebar></Sidebar>
-            <main className="flex-1 p-6">
+            <main className="flex-1">
                 <Outlet />
             </main>
         </div>
