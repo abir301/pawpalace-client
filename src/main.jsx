@@ -8,6 +8,7 @@ import Petlisting from './Components/Petlisting.jsx';
 import Donationcampaign from './Components/Donationcampaign.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
+import Auth from './Authprovider';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Auth>
     <RouterProvider router={router} />
-  </StrictMode>,
+    </Auth>
+  </StrictMode>
 )
