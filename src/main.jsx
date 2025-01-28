@@ -10,6 +10,12 @@ import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import Auth from './Authprovider';
 import Dashboard from './Dashboard/Dashboard.jsx';
+import Addpet from './Dashboard/All/Addpet.jsx';
+import Adoptionreq from './Dashboard/All/Adoptionreq.jsx';
+import Myaddedpets from './Dashboard/All/Myaddedpets.jsx';
+import Createdonation from './Dashboard/All/Createdonation.jsx';
+import Mydonationcamp from './Dashboard/All/Mydonationcamp.jsx';
+import Mydonations from './Dashboard/All/Mydonations.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,20 +50,28 @@ const router = createBrowserRouter([
     children: [
      
       {
-        path: 'login',
-        element: <Login />,
+        path: 'addpet',
+        element: <Addpet />,
       },      
       {
-        path: 'register',
-        element: <Register />,
+        path: 'adoption-requests',
+        element: <Adoptionreq />,
       },
       {
-        path: 'petlisting',
-        element: <Petlisting />,
+        path: 'mypets',
+        element: <Myaddedpets />,
       },
       {
-        path: 'donationcampaign',
-        element: <Donationcampaign />,
+        path: 'create-donation',
+        element: <Createdonation />,
+      },
+      {
+        path: 'mydonation-campaign',
+        element: <Mydonationcamp />,
+      },
+      {
+        path: 'mydonations',
+        element: <Mydonations />,
       },
     ],
   },
