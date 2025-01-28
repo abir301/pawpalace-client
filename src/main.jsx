@@ -9,6 +9,7 @@ import Donationcampaign from './Components/Donationcampaign.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import Auth from './Authprovider';
+import Dashboard from './Dashboard/Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,19 +21,42 @@ const router = createBrowserRouter([
         element: <Homecontent />,
       },      
       {
-        path: '/login',
+        path: 'login',
         element: <Login />,
       },      
       {
-        path: '/register',
+        path: 'register',
         element: <Register />,
       },
       {
-        path: '/petlisting',
+        path: 'petlisting',
         element: <Petlisting />,
       },
       {
-        path: '/donationcampaign',
+        path: 'donationcampaign',
+        element: <Donationcampaign />,
+      },
+    ],
+  },  
+  {
+    path: "/dashboard",
+    element: <Dashboard/>,
+    children: [
+     
+      {
+        path: 'login',
+        element: <Login />,
+      },      
+      {
+        path: 'register',
+        element: <Register />,
+      },
+      {
+        path: 'petlisting',
+        element: <Petlisting />,
+      },
+      {
+        path: 'donationcampaign',
         element: <Donationcampaign />,
       },
     ],

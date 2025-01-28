@@ -30,7 +30,7 @@ const Header = () => {
                                     <img className="w-10" src={user.photoURL} title={user.displayName} alt="User Icon" />
                                 </MenuHandler>
                                 <MenuList>
-                                    <MenuItem className="hover:bg-gray-200"><Link to='/register'>Dashboard</Link></MenuItem>
+                                    <MenuItem className="hover:bg-gray-200"><Link to='/dashboard'>Dashboard</Link></MenuItem>
                                     <MenuItem className="hover:bg-gray-200" onClick={logOut}>Log Out</MenuItem>
                                 </MenuList>
                             </Menu>
