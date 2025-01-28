@@ -65,6 +65,7 @@ const router = createBrowserRouter([
       {
         path: 'mypets',
         element: <Myaddedpets />,
+        loader: () => fetch(`http://localhost:5000/addpet`)
       },
       {
         path: 'create-donation',
