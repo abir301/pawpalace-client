@@ -16,6 +16,7 @@ import Myaddedpets from './Dashboard/All/Myaddedpets.jsx';
 import Createdonation from './Dashboard/All/Createdonation.jsx';
 import Mydonationcamp from './Dashboard/All/Mydonationcamp.jsx';
 import Mydonations from './Dashboard/All/Mydonations.jsx';
+import Dashtext from './Dashboard/Dashtext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard/>,
     children: [
+      {
+        path: '/dashboard',
+        element: <Dashtext />,
+      },
      
       {
         path: 'addpet',
