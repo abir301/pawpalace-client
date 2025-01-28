@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
+import { authContext } from "../Authprovider";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useContext(authContext);
+    const isAdmin = user?.role === "admin";
 
     return (
         <div>
