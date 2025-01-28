@@ -1,0 +1,11 @@
+
+
+const Alldonations = () => {
+    return (
+        <div>
+            <h1>admin page</h1>
+        </div>
+    );
+};
+
+export default Alldonations;

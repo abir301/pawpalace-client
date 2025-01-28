@@ -19,6 +19,9 @@ import Mydonations from './Dashboard/All/Mydonations.jsx';
 import Dashtext from './Dashboard/Dashtext.jsx';
 import Updatepet from './Dashboard/All/Updatepet.jsx';
 import Petdetails from './Components/Petdetails.jsx';
+import Alldonations from './Dashboard/Admin/Alldonations.jsx';
+import Allpets from './Dashboard/Admin/Allpets.jsx';
+import Alluser from './Dashboard/Admin/Alluser.jsx';
 
 const router = createBrowserRouter([
   {
@@ -93,6 +96,18 @@ const router = createBrowserRouter([
         path: 'update-pet/:id',
         element: <Updatepet />,
         loader: ({params}) => fetch(`http://localhost:5000/addpet/${params.id}`)
+      },
+      {
+        path: 'admin-alldonations',
+        element: <Alldonations />,
+      },
+      {
+        path: 'admin-allpets',
+        element: <Allpets />,
+      },
+      {
+        path: 'admin-alluser',
+        element: <Alluser />,
       },
     ],
   },
