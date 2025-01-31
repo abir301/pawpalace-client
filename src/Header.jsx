@@ -13,7 +13,7 @@ const Header = () => {
             
             <div className="flex items-center justify-around">
                 <div className="md:flex flex-col items-center hidden ">
-                    <img className="w-16" src="/public/images/paw.png" alt="" />
+                    <img className="w-16" src="/images/paw.png" alt="" />
                     <p className="text-xl font-medium text-[#F04336] ">PawPalace</p>
                 </div>
                 <div className="flex gap-10">

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider , GithubAuthProvider  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import app from "./firebase.init";
 
 export let authContext = createContext()
@@ -7,6 +7,7 @@ export let authContext = createContext()
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
+
 const AuthProvider = ({ children }) => {
     let [user, setUser] = useState(null)
     let [loader, setLoader] = useState(true)
@@ -35,13 +36,32 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, githubProvider);
     }
 
-
-    let authInfo = { user, setUser, newUser, logOut, login, loader, changeProfile, signInWithGoogle , signInWithGithub }
+    let authInfo = { user, setUser, newUser, logOut, login, loader, changeProfile, signInWithGoogle, signInWithGithub }
 
 
     useEffect(() => {
         let remove = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            if (currentUser) {
+                const userInfo = { email: currentUser.email }
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(userInfo),
+                })
+                .then((res) => res.json()) 
+                .then((data) => {
+                    if (data.token) {
+                        localStorage.setItem("token", data.token);
+                        }
+                    })
+
+            }
+            else{
+                localStorage.removeItem('token')
+            }
             setLoader(false)
         })
         return () => { remove() }

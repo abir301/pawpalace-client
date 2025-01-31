@@ -57,22 +57,17 @@ const Register = () => {
                         })
                             .then((res) => res.json())
                             .then((data) => {
-                                if (data.token) {
-                                    localStorage.setItem("jwtToken", data.token);
-                                }
-                                console.log(data.token);
+                                console.log(data);
                             });
                         toast.success("Registration successful");
                         navigate("/");
                     })
-                    .catch((error) => {
-                        toast.error("Profile update failed: " + error.message);
-                    });
             })
             .catch((error) => {
                 toast.error(error.message);
             });
     };
+
     const googleSign = () => {
         signInWithGoogle()
             .then((result) => {

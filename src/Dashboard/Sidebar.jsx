@@ -8,7 +8,8 @@ import { authContext } from "../Authprovider";
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useContext(authContext);
-    const isAdmin = user?.role === "admin";
+    const isAdmin = true;
+
 
     return (
         <div>
@@ -32,11 +33,16 @@ const Sidebar = () => {
                     <NavLink to="create-donation" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>Create Donation Campaign</NavLink>
                     <NavLink to="mydonation-campaign" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>My Donation Campaigns</NavLink>
                     <NavLink to="mydonations" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>My Donations</NavLink>
-                    <hr />
-                    <p>Admin</p>
-                    <NavLink to="admin-alldonations" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>All Donations</NavLink>
-                    <NavLink to="admin-allpets" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>All Pets</NavLink>
-                    <NavLink to="admin-alluser" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>All Users</NavLink>
+                    {isAdmin && (
+                        <>
+                            <hr />
+                            <p className="p-2 text-[#0A303A]">Admin Routes</p>
+                            <NavLink to="admin-alldonations" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>All Donations</NavLink>
+                            <NavLink to="admin-allpets" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>All Pets</NavLink>
+                            <NavLink to="admin-alluser" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>All Users</NavLink>
+
+                        </>
+                    )}
                     <hr />
                     <NavLink className="p-2 text-[#0A303A] font-medium rounded-lg flex gap-2 items-center hover:bg-gray-200" to="/"><IoHome />Home</NavLink>
                 </div>

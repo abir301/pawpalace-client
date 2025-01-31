@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Home from './Home.jsx';
 import Homecontent from './HomeContent/Homecontent.jsx';
 import Petlisting from './Components/Petlisting.jsx';
@@ -23,6 +23,8 @@ import Alldonations from './Dashboard/Admin/Alldonations.jsx';
 import Allpets from './Dashboard/Admin/Allpets.jsx';
 import Alluser from './Dashboard/Admin/Alluser.jsx';
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,11 +33,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Homecontent />,
-      },      
+      },
       {
         path: 'login',
         element: <Login />,
-      },      
+      },
       {
         path: 'register',
         element: <Register />,
@@ -48,27 +50,27 @@ const router = createBrowserRouter([
       {
         path: 'petlisting/:id',
         element: <Petdetails />,
-        loader: ({params}) => fetch(`http://localhost:5000/addpet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/addpet/${params.id}`)
       },
       {
         path: 'donationcampaign',
         element: <Donationcampaign />,
       },
     ],
-  },  
+  },
   {
     path: "/dashboard",
-    element: <Dashboard/>,
+    element: <Dashboard />,
     children: [
       {
         path: '/dashboard',
         element: <Dashtext />,
       },
-     
+
       {
         path: 'addpet',
         element: <Addpet />,
-      },      
+      },
       {
         path: 'adoption-requests',
         element: <Adoptionreq />,
@@ -77,7 +79,7 @@ const router = createBrowserRouter([
       {
         path: 'mypets',
         element: <Myaddedpets />,
-        loader: () => fetch(`http://localhost:5000/addpet`)   
+        loader: () => fetch(`http://localhost:5000/addpet`)
       },
       {
         path: 'create-donation',
@@ -85,8 +87,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'mydonation-campaign',
-        element: <Mydonationcamp />, 
-        loader: () => fetch(`http://localhost:5000/adddonation`)  
+        element: <Mydonationcamp />,
+        loader: () => fetch(`http://localhost:5000/adddonation`)
       },
       {
         path: 'mydonations',
@@ -95,20 +97,32 @@ const router = createBrowserRouter([
       {
         path: 'update-pet/:id',
         element: <Updatepet />,
-        loader: ({params}) => fetch(`http://localhost:5000/addpet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/addpet/${params.id}`)
       },
       {
         path: 'admin-alldonations',
-        element: <Alldonations />,
+        element: (
+
+            <Alldonations />
+
+        ),
       },
       {
         path: 'admin-allpets',
-        element: <Allpets />,
+        element: (
+
+            <Allpets />
+
+        ),
       },
       {
         path: 'admin-alluser',
-        element: <Alluser />,
-      },
+        element: (
+
+            <Alluser />
+
+        ),
+      }
     ],
   },
 ]);
@@ -117,7 +131,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Auth>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Auth>
   </StrictMode>
 )
