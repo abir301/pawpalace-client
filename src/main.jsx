@@ -46,9 +46,14 @@ const router = createBrowserRouter([
         path: 'petlisting',
         element: <Petlisting />,
         loader: () => fetch(`http://localhost:5000/addpet`)
+      },      
+      {
+        path: 'petlisting/:category',
+        element: <Petlisting />,
+        loader: () => fetch(`http://localhost:5000/addpet`)
       },
       {
-        path: 'petlisting/:id',
+        path: 'petlisting/details/:id',
         element: <Petdetails />,
         loader: ({ params }) => fetch(`http://localhost:5000/addpet/${params.id}`)
       },
@@ -101,27 +106,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'admin-alldonations',
-        element: (
-
-            <Alldonations />
-
-        ),
+        element: <Alldonations />,
       },
       {
         path: 'admin-allpets',
-        element: (
-
-            <Allpets />
-
-        ),
+        element: <Allpets />,
       },
       {
         path: 'admin-alluser',
-        element: (
-
-            <Alluser />
-
-        ),
+        element: <Alluser />,
       }
     ],
   },
