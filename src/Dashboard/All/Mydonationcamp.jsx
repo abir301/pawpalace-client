@@ -1,127 +1,87 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { authContext } from "../../Authprovider";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Mydonationcamp = () => {
-    const loadCamps = useLoaderData();
-    const { user } = useContext(authContext);
-    const [camps, setCamps] = useState([]);
-    const [selectedDonators, setSelectedDonators] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const donations = useLoaderData();
     const navigate = useNavigate();
+    const [donation, setDonation] = useState(donations);
+    const [modal, setModalData] = useState(null);
 
-    useEffect(() => {
-        if (loadCamps && user) {
-            const userPets = loadCamps.filter((p) => p.useremail === user?.email);
-            setCamps(userPets);
-        }
-    }, [loadCamps, user]);
-
-    const togglePause = (id) => {
-        const updatedCamps = camps.map((camp) =>
-            camp._id === id ? { ...camp, paused: !camp.paused } : camp
-        );
-        setCamps(updatedCamps);
-
-        toast.success(
-            updatedCamps.find((camp) => camp._id === id)?.paused
-                ? "Donation paused"
-                : "Donation unpaused"
-        );
+    const handleDonation = (id, stat) => {
+        console.log(stat)
+        fetch(`http://localhost:5000/adddonation/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ donationstat: !stat }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount > 0) {
+                    Swal.fire("Donation has been stopped.");
+                    setDonation(donation.map(donation =>
+                        donation._id === id ? { ...donation, donationstat: !stat } : donation
+                    ));
+                }
+            });
     };
 
-    const handleViewDonators = (donators) => {
-        setSelectedDonators(donators);
-        setShowModal(true);
+    const openModal = (donators) => {
+        setModalData(donators);
+    };
+
+    const closeModal = () => {
+        setModalData(null);
     };
 
     return (
-        <div className="p-6">
-            <h1 className="text-2xl font-semibold mb-4">My Donation Campaigns</h1>
-            <div className="overflow-x-auto">
-                <table className="table-auto w-full border border-gray-300">
-                    <thead className="bg-gray-100">
-                        <tr>
-                            <th className="px-4 py-2 border">Pet Name</th>
-                            <th className="px-4 py-2 border">Max Donation Amount</th>
-                            <th className="px-4 py-2 border">Donation Progress</th>
-                            <th className="px-4 py-2 border">Actions</th>
+        <div className="p-5">
+            <h2 className="text-xl font-bold mb-4">My Donation Requests</h2>
+            <table className="w-full border-collapse border border-gray-700">
+                <thead>
+                    <tr className="">
+                        <th className="border border-black p-2">Pet Name</th>
+                        <th className="border border-black p-2">Max Donation</th>
+                        <th className="border border-black p-2">Progress</th>
+                        <th className="border border-black p-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {donation.map(donation => (
+                        <tr key={donation._id} className="text-center">
+                            <td className="border border-black p-2">{donation.shortDescription}</td>
+                            <td className="border border-black p-2">${donation.maxDonation}</td>
+                            <td className="border border-black p-2">
+                                <div className="w-full bg-gray-300 rounded-full h-4">
+                                    <div
+                                        className="bg-[#0A303A] border-2 h-4 rounded-full"
+                                        style={{ width: `${(donation.collectedAmount / donation.maxDonation) * 100}%` }}
+                                    ></div>
+                                </div>
+                            </td>
+                            <td className="border border-black p-2 space-x-2">
+                                <button className={`px-3 py-1 text-white ${donation.donationstat ? 'bg-red-500' : 'bg-green-500'} rounded`}
+                                    onClick={() => handleDonation(donation._id, donation.donationstat)}>{donation.donationstat ? 'Pause' : 'Unpause'}</button>
+                                <button className="px-3 py-1 bg-[#0A303A] text-white rounded" onClick={() => navigate(`/edit-donation/${donation.id}`)}>Edit</button>
+                                <button className="px-3 py-1 bg-[#0A303A] text-white rounded" onClick={() => openModal(donation.donators)}>View Donators</button>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {camps.map((camp) => (
-                            <tr key={camp._id} className="text-center">
-                                <td className="px-4 py-2 border">{camp.petName}</td>
-                                <td className="px-4 py-2 border">${camp.maxDonation}</td>
-                                <td className="px-4 py-2 border">
-                                    <div className="w-full bg-gray-200 rounded-full h-4">
-                                        <div
-                                            className="bg-green-500 h-4 rounded-full"
-                                            style={{
-                                                width: `${Math.min(
-                                                    (camp.currentDonation / camp.maxDonation) * 100,
-                                                    100
-                                                )}%`,
-                                            }}
-                                        ></div>
-                                    </div>
-                                    <span className="text-sm">
-                                        ${camp.currentDonation} / ${camp.maxDonation}
-                                    </span>
-                                </td>
-                                <td className="px-4 py-2 border space-x-2">
-                                    <button
-                                        onClick={() => togglePause(camp._id)}
-                                        className={`px-3 py-1 text-white rounded ${camp.paused ? "bg-gray-500" : "bg-red-500"
-                                            }`}
-                                    >
-                                        {camp.paused ? "Unpause" : "Pause"}
-                                    </button>
-                                    <button
-                                        onClick={() => navigate(`/edit-donation/${camp._id}`)}
-                                        className="px-3 py-1 bg-blue-500 text-white rounded"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={() => handleViewDonators(camp.donators || [])}
-                                        className="px-3 py-1 bg-green-500 text-white rounded"
-                                    >
-                                        View Donators
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                    ))}
+                </tbody>
+            </table>
 
-            {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-lg p-6 w-96">
-                        <h2 className="text-xl font-semibold mb-4">Donators</h2>
-                        <ul className="space-y-2">
-                            {selectedDonators.length > 0 ? (
-                                selectedDonators.map((donator, index) => (
-                                    <li
-                                        key={index}
-                                        className="flex justify-between items-center border-b py-2"
-                                    >
-                                        <span>{donator.name}</span>
-                                        <span>${donator.amount}</span>
-                                    </li>
-                                ))
-                            ) : (
-                                <p>No donators yet.</p>
-                            )}
+            {modal && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                    <div className="bg-white p-5 rounded shadow-lg">
+                        <h3 className="text-lg font-bold mb-2">Donators</h3>
+                        <ul>
+                            {modal.map((donator, index) => (
+                                <li key={index} className="border-b py-1">{donator.name}: ${donator.amount}</li>
+                            ))}
                         </ul>
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg"
-                        >
-                            Close
-                        </button>
+                        <button className="mt-3 bg-red-500 text-white px-4 py-1 rounded" onClick={closeModal}>Close</button>
                     </div>
                 </div>
             )}
@@ -130,3 +90,4 @@ const Mydonationcamp = () => {
 };
 
 export default Mydonationcamp;
+

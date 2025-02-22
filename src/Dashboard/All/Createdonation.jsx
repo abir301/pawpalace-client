@@ -5,11 +5,12 @@ import toast from "react-hot-toast";
 import { authContext } from "../../Authprovider";
 
 const Createdonation = () => {
-        const { user } = useContext(authContext);
-        const useremail = user?.email;
-        const username = user?.displayName;
-        const userpic = user?.photoURL;
+    const { user } = useContext(authContext);
+    const useremail = user?.email;
+    const username = user?.displayName;
+    const userpic = user?.photoURL;
     const [imageURL, setImageURL] = useState("");
+    const [donationstat, setdonationstat] = useState(true);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const handleImageUpload = async (event) => {
@@ -46,6 +47,7 @@ const Createdonation = () => {
             useremail,
             username,
             userpic,
+            donationstat
         };
 
         fetch('http://localhost:5000/adddonation', {
@@ -86,7 +88,7 @@ const Createdonation = () => {
                         <label className="block text-gray-700 font-medium">Maximum Donation Amount</label>
                         <input
                             type="number"
-                            {...register("maxDonation", { required: "Maximum donation amount is required" , min: { value: 1, message: "Max donation cannot be in negative" } })}
+                            {...register("maxDonation", { required: "Maximum donation amount is required", min: { value: 1, message: "Max donation cannot be in negative" } })}
                             placeholder="Enter the maximum donation amount"
                             className="w-full p-2 border rounded-lg border-gray-400"
                         />

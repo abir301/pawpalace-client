@@ -11,10 +11,10 @@ const Homecontent = () => {
         <div>
             <Banner></Banner>
             <Action></Action>
+            <Card></Card>
             <Relevantone></Relevantone>
             <Relevanttwo></Relevanttwo>
             <Aboutus></Aboutus>
-            <Card></Card>
         </div>
     );
 };

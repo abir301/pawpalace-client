@@ -9,7 +9,7 @@ const Petdetails = () => {
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
     const { user } = useContext(authContext);
-
+    console.log(pet.useremail)
     const handleAdopt = (e) => {
         e.preventDefault();
         const form = e.target
@@ -18,9 +18,9 @@ const Petdetails = () => {
             petId: pet._id,
             petName: pet.name,
             petImage: pet.image,
-            adopterName: pet.username,
-            adopterEmail: pet.useremail,
-            ownerEmail: user.email,
+            adopterName: user.displayName,
+            adopterEmail: user.email,
+            ownerEmail: pet.useremail,
             phone,
             address,
             timestamp: new Date().toISOString(),
@@ -80,12 +80,12 @@ const Petdetails = () => {
 
                             <div className="mb-2">
                                 <label className="block text-gray-700">Your Name</label>
-                                <input type="text" value={pet.username} disabled className="w-full border rounded p-2 bg-gray-200" />
+                                <input type="text" value={user.displayName} disabled className="w-full border rounded p-2 bg-gray-200" />
                             </div>
 
                             <div className="mb-2">
                                 <label className="block text-gray-700">Your Email</label>
-                                <input type="email" value={pet.useremail} disabled className="w-full border rounded p-2 bg-gray-200" />
+                                <input type="email" value={user.email} disabled className="w-full border rounded p-2 bg-gray-200" />
                             </div>
 
                             <div className="mb-2">

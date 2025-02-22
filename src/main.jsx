@@ -22,6 +22,7 @@ import Petdetails from './Components/Petdetails.jsx';
 import Alldonations from './Dashboard/Admin/Alldonations.jsx';
 import Allpets from './Dashboard/Admin/Allpets.jsx';
 import Alluser from './Dashboard/Admin/Alluser.jsx';
+import Updatedonation from './Dashboard/All/Updatedonation.jsx';
 
 
 
@@ -98,6 +99,11 @@ const router = createBrowserRouter([
       {
         path: 'mydonations',
         element: <Mydonations />,
+      },
+      {
+        path: 'update-donation/:id',
+        element: <Updatedonation />,
+        loader: ({ params }) => fetch(`http://localhost:5000/adddonation/${params.id}`)
       },
       {
         path: 'update-pet/:id',
