@@ -23,6 +23,7 @@ import Alldonations from './Dashboard/Admin/Alldonations.jsx';
 import Allpets from './Dashboard/Admin/Allpets.jsx';
 import Alluser from './Dashboard/Admin/Alluser.jsx';
 import Updatedonation from './Dashboard/All/Updatedonation.jsx';
+import Donationdetails from './Components/Donationdetails.jsx';
 
 
 
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
       {
         path: 'donationcampaign',
         element: <Donationcampaign />,
+        loader: () => fetch(`http://localhost:5000/adddonation`)
+      },
+      {
+        path: 'donationcampaign/details/:id',
+        element: <Donationdetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/adddonation/${params.id}`)
       },
     ],
   },
@@ -94,7 +101,13 @@ const router = createBrowserRouter([
       {
         path: 'mydonation-campaign',
         element: <Mydonationcamp />,
-        loader: () => fetch(`http://localhost:5000/adddonation`)
+        loader: async ({ params }) => {
+          const donation = await fetch(`http://localhost:5000/adddonation`); 
+          const donators= await fetch(`http://localhost:5000/donators`); 
+          const loadDonation = await donation .json(); 
+          const loadDonators = await donators.json(); 
+          return { loadDonation , loadDonators };
+        },
       },
       {
         path: 'mydonations',

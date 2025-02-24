@@ -47,7 +47,7 @@ const Createdonation = () => {
             useremail,
             username,
             userpic,
-            donationstat
+            donationstat,
         };
 
         fetch('http://localhost:5000/adddonation', {
