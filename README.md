@@ -1,8 +1,24 @@
-# React + Vite
+## PawPalace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Our website provides user a varities of pets for them to adopt or to donate for their treatment.
 
-Currently, two official plugins are available:
+Live link : https://servify-77a77.web.app/
+Backup link : https://ph-servify-a11.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Category : https://docs.google.com/document/d/1XMDfnfDngCbYNdrX2zE-lsYkZSsEmF3xxCr7C1jY_K8/edit?tab=t.0
+
+
+
+#  Key Features:
+1. Register and login Feature.
+2. Public and admin routes Feature.
+3. Search option and filter option.
+4. Donating feature with stripe.
+5. Unique dashboard for creating and managing data .
+
+
+#  npm packages:
+1. React router and icons.
+2. Sweet alert and hot-toast.
+3. React Skeleton.
+4. React helmet.

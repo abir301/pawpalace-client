@@ -53,7 +53,7 @@ const Allpets = () => {
     };
 
     return (
-        <div>
+        <div className="ml-10">
             <h1 className="text-3xl font-medium my-14">Pet Management</h1>
             <table className="w-full border-collapse border border-gray-300 mt-4">
                 <thead>

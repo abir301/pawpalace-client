@@ -150,7 +150,7 @@ const MyAddedPets = () => {
     });
 
     return (
-        <div>
+        <div className="ml-10 mt-20">
             <h1 className="text-2xl font-bold mb-4">My Added Pets</h1>
             <table className="table-auto w-full border">
                 <thead>
