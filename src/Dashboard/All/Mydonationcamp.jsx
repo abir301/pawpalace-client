@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { authContext } from "../../Authprovider";
+import { Helmet } from "react-helmet";
 
 const Mydonationcamp = () => {
     const { loadDonation, loadDonators } = useLoaderData();
@@ -20,7 +21,7 @@ const Mydonationcamp = () => {
 
     const handleDonation = (id, stat) => {
         console.log(stat)
-        fetch(`http://localhost:5000/adddonation/${id}`, {
+        fetch(`https://pawpalace-server.vercel.app/adddonation/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -42,6 +43,7 @@ const Mydonationcamp = () => {
 
     return (
         <div className="p-5 ml-10">
+            <Helmet><title>My Donation Camp | PawPalace</title></Helmet> 
             <h2 className="text-xl font-bold mb-4">My Donation Requests</h2>
             <table className="w-full border-collapse border border-gray-700">
                 <thead>

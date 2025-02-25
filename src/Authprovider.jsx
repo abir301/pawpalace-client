@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             if (currentUser) {
                 const userInfo = { email: currentUser.email }
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://pawpalace-server.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

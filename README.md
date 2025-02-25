@@ -2,8 +2,8 @@
 
 Our website provides user a varities of pets for them to adopt or to donate for their treatment.
 
-Live link : https://servify-77a77.web.app/
-Backup link : https://ph-servify-a11.netlify.app/
+Live link : https://pawpalace-a8c7e.web.app/
+Backup link : https://pawpalaceph.netlify.app/
 
 Category : https://docs.google.com/document/d/1XMDfnfDngCbYNdrX2zE-lsYkZSsEmF3xxCr7C1jY_K8/edit?tab=t.0
 

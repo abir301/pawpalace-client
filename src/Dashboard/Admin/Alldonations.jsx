@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -11,7 +12,7 @@ const Alldonations = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("http://localhost:5000/admin-donation", {
+        fetch("https://pawpalace-server.vercel.app/admin-donation", {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((res) => {
@@ -28,7 +29,7 @@ const Alldonations = () => {
 
     const handleDonation = (id, stat) => {
         console.log(stat)
-        fetch(`http://localhost:5000/adddonation/${id}`, {
+        fetch(`https://pawpalace-server.vercel.app/adddonation/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +58,7 @@ const Alldonations = () => {
                 confirmButtonText: "Yes, delete it!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/adddonation/${id}`, {
+                    fetch(`https://pawpalace-server.vercel.app/adddonation/${id}`, {
                         method: "DELETE",
                     })
                         .then((res) => res.json())
@@ -79,6 +80,7 @@ const Alldonations = () => {
 
     return (
         <div className="p-5 ml-10">
+            <Helmet><title>Admin Donations | PawPalace</title></Helmet> 
             <h2 className="text-xl font-bold mb-4">All Donations</h2>
             <table className="w-full border-collapse border border-gray-700">
                 <thead>

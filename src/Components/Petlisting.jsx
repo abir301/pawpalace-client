@@ -1,6 +1,7 @@
 import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Petlisting = () => {
     const data = useLoaderData();
@@ -16,6 +17,7 @@ const Petlisting = () => {
 
     return (
         <div className="p-6 bg-gray-100">
+            <Helmet><title>Pet Lists | PawPalace</title></Helmet> 
             <h1 className="text-3xl text-[#F04336] font-bold text-center mb-8">Pet Listing</h1>
 
             <div className="lg:flex items-center justify-around">

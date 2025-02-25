@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { authContext } from "../Authprovider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { Helmet } from "react-helmet";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
@@ -71,7 +72,7 @@ const Donationdetails = () => {
             amount,
         };
 
-        fetch("http://localhost:5000/donators", {
+        fetch("https://pawpalace-server.vercel.app/donators", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -93,6 +94,7 @@ const Donationdetails = () => {
 
     return (
         <div>
+            <Helmet><title>Donation Details | PawPalace</title></Helmet> 
             <div className="max-w-3xl mx-auto p-6 border border-[#F04336] rounded-lg shadow-lg bg-white text-[#0A303A]">
                 <img className="w-full h-96 object-fill rounded-lg mb-4" src={donation.image} alt="" />
                 <p className="text-3xl font-bold">{donation.shortDescription}</p>

@@ -11,6 +11,7 @@ import {
 import Swal from "sweetalert2";
 import { MdDelete } from "react-icons/md";
 import { FaPen } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const MyAddedPets = () => {
     const loadPets = useLoaderData();
@@ -35,7 +36,7 @@ const MyAddedPets = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addpet/${id}`, {
+                fetch(`https://pawpalace-server.vercel.app/addpet/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -54,7 +55,7 @@ const MyAddedPets = () => {
     };
 
     const handleAdopt = (id) => {
-        fetch(`http://localhost:5000/addpet/${id}`, {
+        fetch(`https://pawpalace-server.vercel.app/addpet/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -151,6 +152,7 @@ const MyAddedPets = () => {
 
     return (
         <div className="ml-10 mt-20">
+            <Helmet><title>My Pets | PawPalace</title></Helmet> 
             <h1 className="text-2xl font-bold mb-4">My Added Pets</h1>
             <table className="table-auto w-full border">
                 <thead>

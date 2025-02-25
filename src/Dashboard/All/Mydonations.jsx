@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { authContext } from "../../Authprovider";
+import { Helmet } from "react-helmet";
 
 
 const Mydonations = () => {
@@ -26,7 +27,7 @@ const Mydonations = () => {
             confirmButtonText: "Yes",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/donators/${id}`, {
+                fetch(`https://pawpalace-server.vercel.app/donators/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -46,6 +47,7 @@ const Mydonations = () => {
 
     return (
         <div className="p-6">
+            <Helmet><title>My Donation | PawPalace</title></Helmet> 
             <h1 className="text-2xl font-bold mb-4">My Donations</h1>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">

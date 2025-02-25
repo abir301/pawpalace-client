@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { authContext } from "../../Authprovider";
+import { Helmet } from "react-helmet";
 
 const Createdonation = () => {
     const { user } = useContext(authContext);
@@ -50,7 +51,7 @@ const Createdonation = () => {
             donationstat,
         };
 
-        fetch('http://localhost:5000/adddonation', {
+        fetch('https://pawpalace-server.vercel.app/adddonation', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,6 +71,7 @@ const Createdonation = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <Helmet><title>Create Donation | PawPalace</title></Helmet> 
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <h2 className="text-2xl font-semibold text-gray-700 text-center mb-4">Add a Donation Campaign</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

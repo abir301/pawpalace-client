@@ -5,6 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 
@@ -46,7 +47,7 @@ const Addpet = () => {
         };
         console.log(petData);
 
-        fetch('http://localhost:5000/addpet', {
+        fetch('https://pawpalace-server.vercel.app/addpet', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -90,6 +91,7 @@ const handleImageUpload = async (event) => {
 
 return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <Helmet><title>Add Pet | PawPalace</title></Helmet> 
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
             <h2 className="text-2xl font-semibold text-gray-700 text-center mb-4">Add a Pet</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

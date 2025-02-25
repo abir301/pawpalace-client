@@ -13,7 +13,7 @@ const Sidebar = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (user?.email) {
-            fetch("http://localhost:5000/check-admin", {
+            fetch("https://pawpalace-server.vercel.app/check-admin", {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",

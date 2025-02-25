@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { authContext } from "../Authprovider";
+import { Helmet } from "react-helmet";
 
 const Petdetails = () => {
     const pet = useLoaderData();
@@ -24,7 +25,7 @@ const Petdetails = () => {
             timestamp: new Date().toISOString(),
         };
 
-        fetch('http://localhost:5000/adoptreq', {
+        fetch('https://pawpalace-server.vercel.app/adoptreq', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -50,6 +51,7 @@ const Petdetails = () => {
 
     return (
         <div className="bg-gray-100 py-10">
+            <Helmet><title>Pet Details | PawPalace</title></Helmet> 
             <div className="max-w-3xl mx-auto p-6 border border-[#F04336] rounded-lg shadow-lg  bg-white text-[#0A303A]">
                 <img src={pet.image} alt={pet.name} className="w-full h-96 object-fill rounded-lg mb-4" />
                 <h1 className="text-3xl font-bold ">{pet.name}</h1>

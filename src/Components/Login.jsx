@@ -4,6 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { authContext } from "../Authprovider";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     let { login, setUser, signInWithGoogle, signInWithGithub } = useContext(authContext)
@@ -59,6 +60,7 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet><title>Login | PawPalace</title></Helmet> 
             <div className="flex justify-center items-center bg-gray-100">
                 <div className="w-full max-w-sm bg-white shadow-lg rounded-lg p-8 my-14">
                     <form onSubmit={handleSubmit} className="space-y-4">

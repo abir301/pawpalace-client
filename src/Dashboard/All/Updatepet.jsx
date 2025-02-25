@@ -5,6 +5,7 @@ import Select from "react-select";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const categories = [
     { value: "cat", label: "Cat" },
@@ -55,7 +56,7 @@ const Updatepet = () => {
             adopted: data.adopted,
         };
 
-        fetch(`http://localhost:5000/addpet/${data._id}`, {
+        fetch(`https://pawpalace-server.vercel.app/addpet/${data._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -87,6 +88,7 @@ const Updatepet = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <Helmet><title>Update Pet | PawPalace</title></Helmet> 
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <h2 className="text-2xl font-semibold text-gray-700 text-center mb-4">Update Pet</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

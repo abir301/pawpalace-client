@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { authContext } from "../../Authprovider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Adoptionreq = () => {
     const { user } = useContext(authContext);
@@ -25,6 +26,7 @@ const Adoptionreq = () => {
 
     return (
         <div className="p-6 bg-gray-100">
+            <Helmet><title>Adopt Request | PawPalace</title></Helmet> 
             <h1 className="text-2xl md:text-3xl text-[#F04336] font-bold text-center mb-8">
                 Adoption Requests
             </h1>

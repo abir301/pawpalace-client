@@ -47,27 +47,27 @@ const router = createBrowserRouter([
       {
         path: 'petlisting',
         element: <Petlisting />,
-        loader: () => fetch(`http://localhost:5000/addpet`)
+        loader: () => fetch(`https://pawpalace-server.vercel.app/addpet`)
       },      
       {
         path: 'petlisting/:category',
         element: <Petlisting />,
-        loader: () => fetch(`http://localhost:5000/addpet`)
+        loader: () => fetch(`https://pawpalace-server.vercel.app/addpet`)
       },
       {
         path: 'petlisting/details/:id',
         element: <Petdetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/addpet/${params.id}`)
+        loader: ({ params }) => fetch(`https://pawpalace-server.vercel.app/addpet/${params.id}`)
       },
       {
         path: 'donationcampaign',
         element: <Donationcampaign />,
-        loader: () => fetch(`http://localhost:5000/adddonation`)
+        loader: () => fetch(`https://pawpalace-server.vercel.app/adddonation`)
       },
       {
         path: 'donationcampaign/details/:id',
         element: <Donationdetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/adddonation/${params.id}`)
+        loader: ({ params }) => fetch(`https://pawpalace-server.vercel.app/adddonation/${params.id}`)
       },
     ],
   },
@@ -87,12 +87,12 @@ const router = createBrowserRouter([
       {
         path: 'adoption-requests',
         element: <Adoptionreq />,
-        loader: () => fetch(`http://localhost:5000/adoptreq`)
+        loader: () => fetch(`https://pawpalace-server.vercel.app/adoptreq`)
       },
       {
         path: 'mypets',
         element: <Myaddedpets />,
-        loader: () => fetch(`http://localhost:5000/addpet`)
+        loader: () => fetch(`https://pawpalace-server.vercel.app/addpet`)
       },
       {
         path: 'create-donation',
@@ -102,8 +102,8 @@ const router = createBrowserRouter([
         path: 'mydonation-campaign',
         element: <Mydonationcamp />,
         loader: async ({ params }) => {
-          const donation = await fetch(`http://localhost:5000/adddonation`); 
-          const donators= await fetch(`http://localhost:5000/donators`); 
+          const donation = await fetch(`https://pawpalace-server.vercel.app/adddonation`); 
+          const donators= await fetch(`https://pawpalace-server.vercel.app/donators`); 
           const loadDonation = await donation .json(); 
           const loadDonators = await donators.json(); 
           return { loadDonation , loadDonators };
@@ -112,17 +112,17 @@ const router = createBrowserRouter([
       {
         path: 'mydonations',
         element: <Mydonations />,
-        loader: () => fetch(`http://localhost:5000/donators`)
+        loader: () => fetch(`https://pawpalace-server.vercel.app/donators`)
       },
       {
         path: 'update-donation/:id',
         element: <Updatedonation />,
-        loader: ({ params }) => fetch(`http://localhost:5000/adddonation/${params.id}`)
+        loader: ({ params }) => fetch(`https://pawpalace-server.vercel.app/adddonation/${params.id}`)
       },
       {
         path: 'update-pet/:id',
         element: <Updatepet />,
-        loader: ({ params }) => fetch(`http://localhost:5000/addpet/${params.id}`)
+        loader: ({ params }) => fetch(`https://pawpalace-server.vercel.app/addpet/${params.id}`)
       },
       {
         path: 'admin-alldonations',

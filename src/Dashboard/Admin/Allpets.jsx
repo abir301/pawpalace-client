@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { FaTrash, FaEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Allpets = () => {
     const [pets, setPets] = useState([]);
@@ -9,7 +10,7 @@ const Allpets = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("http://localhost:5000/admin-pet", {
+        fetch("https://pawpalace-server.vercel.app/admin-pet", {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((res) => {
@@ -34,7 +35,7 @@ const Allpets = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addpet/${id}`, {
+                fetch(`https://pawpalace-server.vercel.app/addpet/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -54,6 +55,7 @@ const Allpets = () => {
 
     return (
         <div className="ml-10">
+            <Helmet><title>Admin Pets | PawPalace</title></Helmet> 
             <h1 className="text-3xl font-medium my-14">Pet Management</h1>
             <table className="w-full border-collapse border border-gray-300 mt-4">
                 <thead>

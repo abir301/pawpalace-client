@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useLoaderData} from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Updatedonation = () => {
 
@@ -55,7 +56,7 @@ const Updatedonation = () => {
             donatedAmount,
         };
 
-        fetch(`http://localhost:5000/updatedonation/${_id}`, {
+        fetch(`https://pawpalace-server.vercel.app/updatedonation/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -76,6 +77,7 @@ const Updatedonation = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <Helmet><title>Update Donation | PawPalace</title></Helmet> 
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <h2 className="text-2xl font-semibold text-gray-700 text-center mb-4">Update Donation Campaign</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 
@@ -7,6 +8,7 @@ const Donationcampaign = () => {
 
     return (
         <div className="p-6 bg-gray-100">
+            <Helmet><title>Donation Camp | PawPalace</title></Helmet> 
             <div className="w-[80%] mx-auto">
                 <h1 className="text-3xl text-[#F04336] font-bold text-center mb-8">Donation Campaign</h1>
                 <div className="grid-cols-1 grid lg:grid-cols-3 md:grid-cols-2 gap-y-20">

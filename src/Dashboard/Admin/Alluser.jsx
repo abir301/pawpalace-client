@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const Alluser = () => {
@@ -9,7 +10,7 @@ const Alluser = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("http://localhost:5000/admin-user", {
+        fetch("https://pawpalace-server.vercel.app/admin-user", {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((res) => {
@@ -44,7 +45,7 @@ const Alluser = () => {
             confirmButtonText: "Yes, make admin!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/admin-user/make-admin/${id}`, {
+                fetch(`https://pawpalace-server.vercel.app/admin-user/make-admin/${id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
@@ -75,6 +76,7 @@ const Alluser = () => {
 
     return (
         <div>
+            <Helmet><title>Admin Users | PawPalace</title></Helmet> 
             <h1 className="text-3xl font-medium my-14">User Management</h1>
             <table className="w-full border-collapse border border-gray-300 mt-4">
                 <thead>
