@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { FiMenu } from "react-icons/fi";
@@ -8,7 +8,23 @@ import { authContext } from "../Authprovider";
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useContext(authContext);
-    const isAdmin = true;
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (user?.email) {
+            fetch("http://localhost:5000/check-admin", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({ email: user.email }),
+            })
+            .then((res) => res.json())
+            .then((data) => setIsAdmin(data.isAdmin))
+        }
+    }, [user]);
 
 
     return (

@@ -112,6 +112,7 @@ const router = createBrowserRouter([
       {
         path: 'mydonations',
         element: <Mydonations />,
+        loader: () => fetch(`http://localhost:5000/donators`)
       },
       {
         path: 'update-donation/:id',

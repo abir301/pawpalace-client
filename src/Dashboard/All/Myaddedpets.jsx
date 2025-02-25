@@ -43,7 +43,7 @@ const MyAddedPets = () => {
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your service has been deleted.",
+                                text: "Your pet has been deleted.",
                                 icon: "success",
                             });
                             setPets((pet) => pet.filter((pe) => pe._id !== id));

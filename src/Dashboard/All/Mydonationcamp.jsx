@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { authContext } from "../../Authprovider";
 
 const Mydonationcamp = () => {
     const { loadDonation, loadDonators } = useLoaderData();
+        const { user } = useContext(authContext);
     const navigate = useNavigate();
     const [donation, setDonation] = useState(loadDonation);
     const [showModal, setShowModal] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
+
+        useEffect(() => {
+            if (loadDonation && user) {
+                const userDonation = loadDonation.filter((don) => don.useremail === user?.email);
+                setDonation(userDonation);
+            }
+        }, [loadDonation, user]);
 
     const handleDonation = (id, stat) => {
         console.log(stat)

@@ -62,7 +62,7 @@ const Donationdetails = () => {
         const form = e.target;
         const donationData = {
             petId: donation._id,
-            petName: donation.name,
+            petDisease: donation.shortDescription,
             petImage: donation.image,
             donatorName: user.displayName,
             donatorEmail: user.email,
