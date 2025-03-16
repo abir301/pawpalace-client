@@ -6,12 +6,12 @@ const Header = () => {
 
     //[#0A303A]
     //[#F04336]  
-    const { user, logOut} = useContext(authContext);
+    const { user, logOut } = useContext(authContext);
 
     return (
         <div className=" sticky top-0 z-50 bg-white drop-shadow-lg">
-            
-            <div className="flex items-center justify-around">
+
+            <div className="flex items-center justify-around lg:gap-28">
                 <div className="md:flex flex-col items-center hidden ">
                     <img className="w-16" src="/images/paw.png" alt="" />
                     <p className="text-xl font-medium text-[#F04336] ">PawPalace</p>
@@ -24,16 +24,15 @@ const Header = () => {
                 <div className="flex gap-3">
                     {user && user.email ?
                         (<>
-                            <Menu animate={{ mount: { y: 0 }, unmount: { y: 25 }, }}
-                            >
-                                <MenuHandler>
+                            <details className="relative dropdown">
+                                <summary className="cursor-pointer flex items-center">
                                     <img className="w-10" src={user.photoURL} title={user.displayName} alt="User Icon" />
-                                </MenuHandler>
-                                <MenuList>
-                                <Link to='/dashboard'><MenuItem className="hover:bg-gray-200">Dashboard</MenuItem></Link>
-                                    <MenuItem className="hover:bg-gray-200" onClick={logOut}>Log Out</MenuItem>
-                                </MenuList>
-                            </Menu>
+                                </summary>
+                                <ul className="absolute right-0 mt-2 w-40 bg-base-100 rounded-box shadow-lg border border-gray-200">
+                                    <li><Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-200">Dashboard</Link></li>
+                                    <li><button className="w-full text-left px-4 py-2 hover:bg-gray-200"onClick={logOut}>Log Out</button></li>
+                                </ul>
+                            </details>
 
                         </>)
                         : (
@@ -47,7 +46,7 @@ const Header = () => {
 
             </div>
         </div>
-        
+
 
     );
 };
