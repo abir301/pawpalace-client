@@ -9,7 +9,7 @@ const Header = () => {
     const { user, logOut} = useContext(authContext);
 
     return (
-        <div>
+        <div className=" sticky top-0 z-50 bg-white drop-shadow-lg">
             
             <div className="flex items-center justify-around">
                 <div className="md:flex flex-col items-center hidden ">
