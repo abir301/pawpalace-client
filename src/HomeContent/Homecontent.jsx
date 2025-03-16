@@ -5,6 +5,7 @@ import Card from "./Card";
 import Relevantone from "./Relevantone";
 import Relevantthree from "./Relevantthree";
 import Relevanttwo from "./Relevanttwo";
+import Releventfour from "./Releventfour";
 
 
 const Homecontent = () => {
@@ -17,6 +18,7 @@ const Homecontent = () => {
             <Relevanttwo></Relevanttwo>
             <Relevantthree></Relevantthree>
             <Aboutus></Aboutus>
+            <Releventfour></Releventfour>
         </div>
     );
 };

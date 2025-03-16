@@ -79,7 +79,7 @@ const Alldonations = () => {
 
 
     return (
-        <div className="p-5 ml-10">
+        <div className="p-5 lg:ml-10 mt-10">
             <Helmet><title>Admin Donations | PawPalace</title></Helmet> 
             <h2 className="text-xl font-bold mb-4">All Donations</h2>
             <table className="w-full border-collapse border border-gray-700">
@@ -94,10 +94,10 @@ const Alldonations = () => {
                 <tbody>
                     {donation.map(donation => (
                         <tr key={donation._id} className="text-center">
-                            <td className="border border-black p-2">{donation.shortDescription}</td>
-                            <td className="border border-black p-2">${donation.maxDonation}</td>
-                            <td className="border border-black p-2">{donation.useremail}</td>
-                            <td className="border border-black p-2 space-x-2">
+                            <td className="border border-black lg:p-2">{donation.shortDescription}</td>
+                            <td className="border border-black lg:p-2">${donation.maxDonation}</td>
+                            <td className="border border-black lg:p-2">{donation.useremail}</td>
+                            <td className="border border-black lg:p-2 space-x-2">
                                 <button className={`px-3 py-1 text-white ${donation.donationstat ? 'bg-red-500' : 'bg-green-500'} rounded`}
                                     onClick={() => handleDonation(donation._id, donation.donationstat)}>{donation.donationstat ? 'Pause' : 'Unpause'}</button>
                                 <button className="px-3 py-1 bg-[#0A303A] text-white rounded" onClick={() => navigate(`/dashboard/update-donation/${donation._id}`)}>Edit</button>
