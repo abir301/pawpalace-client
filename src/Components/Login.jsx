@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { authContext } from "../Authprovider";
@@ -9,6 +9,8 @@ import { Helmet } from "react-helmet";
 const Login = () => {
     let { login, setUser, signInWithGoogle, signInWithGithub } = useContext(authContext)
     const navigate = useNavigate()
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     let handleSubmit = (e) => {
         e.preventDefault()
@@ -58,6 +60,11 @@ const Login = () => {
             });
     }
 
+    const autofillAdmin = () => {
+        setEmail("admin1@gmail.com");  
+        setPassword("Aa123456");      
+    };
+
     return (
         <div>
             <Helmet><title>Login | PawPalace</title></Helmet> 
@@ -68,25 +75,15 @@ const Login = () => {
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Email
                             </label>
-                            <input type="email" name="email" placeholder="Enter your email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0A303A]" required />
+                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="Enter your email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0A303A]" required />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Password
                             </label>
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Enter your password"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0A303A]"
-                                required
-                            />
+                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="Enter your password" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0A303A]"required/>
                             <div className="text-right mt-2">
-                                <button
-                                    type="button"
-                                    className="text-sm text-[#0A303A] hover:underline focus:outline-none">
-                                    Forgot password?
-                                </button>
+                                <button type="button" onClick={autofillAdmin} className="text-sm text-[#0A303A] hover:underline focus:outline-none">Admin Login</button>
                             </div>
                         </div>
                         <div>

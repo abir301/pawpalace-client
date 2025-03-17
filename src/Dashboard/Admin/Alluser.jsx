@@ -77,14 +77,14 @@ const Alluser = () => {
     return (
         <div>
             <Helmet><title>Admin Users | PawPalace</title></Helmet> 
-            <h1 className="text-3xl font-medium my-14">User Management</h1>
+            <h1 className="text-3xl font-medium mt-16 mb-4">User Management</h1>
             <table className="w-full border-collapse border border-gray-300 mt-4">
                 <thead>
                     <tr className="bg-gray-100 border-b border-gray-300">
                         <th className="p-3 border border-gray-300">Profile</th>
                         <th className="p-3 border border-gray-300">Name</th>
                         <th className="p-3 border border-gray-300">Email</th>
-                        <th className="p-3 border border-gray-300">Role</th>
+
                         <th className="p-3 border border-gray-300">Action</th>
                     </tr>
                 </thead>
@@ -96,7 +96,6 @@ const Alluser = () => {
                             </td>
                             <td className="p-3 border border-gray-300">{user.displayName}</td>
                             <td className="p-3 border border-gray-300">{user.email}</td>
-                            <td className="p-3 border border-gray-300">{user.role}</td>
                             <td className="p-3 border border-gray-300">
                                 {user.role !== "admin" ? (
                                     <button

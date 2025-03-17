@@ -97,7 +97,7 @@ const Alldonations = () => {
                             <td className="border border-black lg:p-2">{donation.shortDescription}</td>
                             <td className="border border-black lg:p-2">${donation.maxDonation}</td>
                             <td className="border border-black lg:p-2">{donation.useremail}</td>
-                            <td className="border border-black lg:p-2 space-x-2">
+                            <td className="border border-black lg:p-2 space-x-2 space-y-2 my-2">
                                 <button className={`px-3 py-1 text-white ${donation.donationstat ? 'bg-red-500' : 'bg-green-500'} rounded`}
                                     onClick={() => handleDonation(donation._id, donation.donationstat)}>{donation.donationstat ? 'Pause' : 'Unpause'}</button>
                                 <button className="px-3 py-1 bg-[#0A303A] text-white rounded" onClick={() => navigate(`/dashboard/update-donation/${donation._id}`)}>Edit</button>

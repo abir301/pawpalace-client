@@ -41,8 +41,8 @@ const Relevanttwo = () => {
                             <div className="flex items-center gap-4 mt-3">
                                 <img className="border-2 border-[#F04336] rounded-full" src="https://themebeyond.com/pre/petco-prev/petco-live/img/images/testi_avatar02.png" alt="" />
                                 <div>
-                                    <h1 className="font-bold text-xl text-[#0A303A]">Anna Frank</h1>
-                                    <p className="text-gray-500 font-medium">High School Teacher</p>
+                                    <h1 className="font-bold text-xl text-[#0A303A]">Tim Southee</h1>
+                                    <p className="text-gray-500 font-medium">Civil Engineer</p>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ const Relevanttwo = () => {
                             <div className="flex items-center gap-4 mt-3">
                                 <img className="border-2 border-[#F04336] rounded-full w-20" src="https://themebeyond.com/pre/petco-prev/petco-live/img/images/testi_avatar01.png" alt="" />
                                 <div>
-                                    <h1 className="font-bold text-xl text-[#0A303A]">Anna Frank</h1>
+                                    <h1 className="font-bold text-xl text-[#0A303A]">Emma Swift</h1>
                                     <p className="text-gray-500 font-medium">High School Teacher</p>
                                 </div>
                             </div>

@@ -3,7 +3,7 @@
 function Relevantthree() {
     return (
         <div><h1 className="text-center text-4xl font-bold text-[#0A303A]">Our Progress</h1>
-            <div className="flex flex-wrap justify-center gap-20 p-8">
+            <div className="flex flex-wrap justify-center gap-8 lg:gap-20 p-8">
 
                 <div className="bg-white shadow-lg rounded-xl p-6 text-center w-60 h-40 flex-col flex items-center justify-center border-[1px] border-gray-400">
                     <h1 className="text-4xl font-bold text-gray-900">10K+</h1>
