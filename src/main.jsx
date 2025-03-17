@@ -78,6 +78,13 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashtext />,
+        loader: async ({ params }) => {
+          const donation = await fetch(`https://pawpalace-server.vercel.app/adddonation`); 
+          const pet = await fetch(`https://pawpalace-server.vercel.app/addpet`); 
+          const loadDonation = await donation.json(); 
+          const loadPet = await pet.json(); 
+          return { loadDonation , loadPet };
+        }
       },
 
       {
@@ -104,7 +111,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           const donation = await fetch(`https://pawpalace-server.vercel.app/adddonation`); 
           const donators= await fetch(`https://pawpalace-server.vercel.app/donators`); 
-          const loadDonation = await donation .json(); 
+          const loadDonation = await donation.json(); 
           const loadDonators = await donators.json(); 
           return { loadDonation , loadDonators };
         },

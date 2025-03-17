@@ -15,14 +15,14 @@ const Sidebar = () => {
         if (user?.email) {
             fetch("https://pawpalace-server.vercel.app/check-admin", {
                 method: "POST",
-                headers: { 
+                headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify({ email: user.email }),
             })
-            .then((res) => res.json())
-            .then((data) => setIsAdmin(data.isAdmin))
+                .then((res) => res.json())
+                .then((data) => setIsAdmin(data.isAdmin))
         }
     }, [user]);
 
@@ -43,6 +43,7 @@ const Sidebar = () => {
 
                 <h1 className="text-xl text-[#0A303A] font-bold mb-4 mt-10 md:mt-0">Sidebar</h1>
                 <div className="lg:space-y-4 md:space-y-2">
+                    <NavLink to="/dashboard" end className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>User Profile</NavLink>
                     <NavLink to="addpet" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>Add a Pet</NavLink>
                     <NavLink to="mypets" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>My Added Pets</NavLink>
                     <NavLink to="adoption-requests" className={({ isActive }) => `block p-2 text-[#0A303A] font-medium rounded-lg hover:bg-gray-200 ${isActive ? "bg-gray-200" : ""}`}>Adoption Requests</NavLink>
