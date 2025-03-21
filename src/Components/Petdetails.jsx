@@ -52,8 +52,8 @@ const Petdetails = () => {
     return (
         <div className="bg-gray-100 py-10">
             <Helmet><title>Pet Details | PawPalace</title></Helmet> 
-            <div className="max-w-3xl mx-auto p-6 border border-[#F04336] rounded-lg shadow-lg  bg-white text-[#0A303A]">
-                <img src={pet.image} alt={pet.name} className="w-full h-96 object-fill rounded-lg mb-4" />
+            <div className="w-fit mx-auto p-6 border border-[#F04336] rounded-lg shadow-lg  bg-white text-[#0A303A]">
+                <img src={pet.image} alt={pet.name} className="rounded-lg mb-4" />
                 <h1 className="text-3xl font-bold ">{pet.name}</h1>
                 <p className="">{pet.short}</p>
                 <p className="mt-2"><span className="font-bold">Age:</span> {pet.age} years</p>
