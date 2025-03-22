@@ -2,7 +2,7 @@
 
 Our website provides user a varities of pets for them to adopt or to donate for their treatment.
 
-Live link : https://pawpalace-a8c7e.web.app/
+Live link : https://pawpalace-a8c7e.web.app/ 
 Backup link : https://pawpalaceph.netlify.app/
 
 Category : https://docs.google.com/document/d/1XMDfnfDngCbYNdrX2zE-lsYkZSsEmF3xxCr7C1jY_K8/edit?tab=t.0
@@ -14,7 +14,8 @@ Category : https://docs.google.com/document/d/1XMDfnfDngCbYNdrX2zE-lsYkZSsEmF3xx
 2. Public and admin routes Feature.
 3. Search option and filter option.
 4. Donating feature with stripe.
-5. Unique dashboard for creating and managing data .
+5. Unique dashboard for creating and managing data.
+6. Private routes for admin to view and manage website data.
 
 
 #  npm packages:
