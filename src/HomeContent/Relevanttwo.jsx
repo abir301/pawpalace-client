@@ -1,79 +1,107 @@
+import { Star } from "lucide-react";
 
+export default function Relevanttwo() {
+  return (
+    <div className="bg-white w-[70%] mx-auto my-10">
+        <h1 className="text-4xl text-[#0A303A] font-bold text-center">Read Reviews From Our Customers</h1>
+    <div className="flex justify-around gap-6 p-6">
 
-const Relevanttwo = () => {
-    return (
-        <div className="">
-            <div className="w-[80%] mx-auto mb-10">
-                <h1 className="text-[#0A303A] text-4xl font-bold text-center py-5">Hear from our customers</h1>
-                <p className="text-gray-500 text-center text-lg pb-6">Hear from the people who are satisfied by our service</p>
-                <div className="flex items-center justify-center">
-                    <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-20">
-                        <div className="w-[320px] lg:w-[400px] drop-shadow-lg bg-white border-[1px] border-gray-400 p-4 rounded-lg">
-                            <div className="rating rating-lg">
-                                <input type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-                                <input type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" aria-label="2 star" />
-                                <input type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-                                <input type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-                                <input type="radio" name="rating-8" className="mask mask-star-2 bg-orange-400" aria-label="5 star" defaultChecked />
-                            </div>
-                            <p className="text-gray-500 text-lg font-medium">I adopted my dog through PawPalace, and the experience was seamless! The website is easy to navigate,
-                                with detailed pet profiles and helpful filters. I found my perfect furry friend in no time. Highly
-                                recommend it to anyone looking to adopt!</p>
-                            <div className="flex items-center gap-4 mt-3">
-                                <img className="border-2 border-[#F04336] rounded-full w-20" src="https://themebeyond.com/pre/petco-prev/petco-live/img/images/testi_avatar01.png" alt="" />
-                                <div>
-                                    <h1 className="font-bold text-xl text-[#0A303A]">Anna Frank</h1>
-                                    <p className="text-gray-500 font-medium">High School Teacher</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-[320px] lg:w-[400px] drop-shadow-lg bg-white border-[1px] border-gray-400 p-4 rounded-lg">
-                            <div className="rating rating-lg">
-                                <input type="radio" name="rating-1" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-                                <input type="radio" name="rating-1" className="mask mask-star-2 bg-orange-400" aria-label="2 star" />
-                                <input type="radio" name="rating-1" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-                                <input type="radio" name="rating-1" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-                                <input type="radio" name="rating-1" className="mask mask-star-2 bg-orange-400" aria-label="5 star" defaultChecked />
-                            </div>
-                            <p className="text-gray-500 text-lg font-medium">As an engineer, I appreciated how efficiently PawPalace is designed. The adoption process was simple
-                                and enjoyable! The pet profiles were informative, and I loved how user-friendly the site is. I’m so
-                                happy to have found my adorable companion here.</p>
-                            <div className="flex items-center gap-4 mt-3">
-                                <img className="border-2 border-[#F04336] rounded-full" src="https://themebeyond.com/pre/petco-prev/petco-live/img/images/testi_avatar02.png" alt="" />
-                                <div>
-                                    <h1 className="font-bold text-xl text-[#0A303A]">Tim Southee</h1>
-                                    <p className="text-gray-500 font-medium">Civil Engineer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-[320px] lg:w-[400px] drop-shadow-lg bg-white border-[1px] border-gray-400 py-2 px-4 rounded-lg">
-                            <div className="rating rating-lg">
-                                <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-                                <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" aria-label="2 star" />
-                                <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-                                <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-                                <input type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" aria-label="5 star" defaultChecked />
-                            </div>
-                            <p className="text-gray-500 text-lg font-medium">I found my furry companion through PawPalace, and the process was effortless!
-                                The platform is user-friendly, featuring in-depth pet profiles and smart filters. It made finding my ideal pet quick and stress-free.
-                                I highly recommend it to anyone searching for a new best friend!</p>
-                            <div className="flex items-center gap-4 mt-3">
-                                <img className="border-2 border-[#F04336] rounded-full w-20" src="https://themebeyond.com/pre/petco-prev/petco-live/img/images/testi_avatar01.png" alt="" />
-                                <div>
-                                    <h1 className="font-bold text-xl text-[#0A303A]">Emma Swift</h1>
-                                    <p className="text-gray-500 font-medium">High School Teacher</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-
+      <div className="bg-white rounded-2xl shadow-lg p-5 w-80 flex flex-col justify-between">
+        <div className="flex text-yellow-500 mb-2">
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
         </div>
-    );
-};
 
-export default Relevanttwo;
+        <p className="text-gray-800 text-sm mb-4">
+          Adopting from PawsHome was the best decision! The team made the whole
+          process smooth, and now I have a loving companion who brightens my days.
+        </p>
+
+        <hr className="my-2" />
+
+        <div className="flex items-center gap-3 mt-2">
+          <img
+            src="https://randomuser.me/api/portraits/women/44.jpg"
+            alt="Emily Johnson"
+            className="w-10 h-10 rounded-full"
+          />
+          <div>
+            <h4 className="text-sm font-semibold text-gray-900">Emily Johnson</h4>
+            <p className="text-xs text-gray-500">Adopted Bella the Golden Retriever</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-lg p-5 w-80 flex flex-col justify-between">
+        <div className="flex text-yellow-500 mb-2">
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+        </div>
+
+        <p className="text-gray-800 text-sm mb-4">
+          I was nervous about adopting, but the staff guided me step by step. Max
+          has been the sweetest cat and truly feels like family now.
+        </p>
+
+        {/* Divider */}
+        <hr className="my-2" />
+
+        {/* User Info */}
+        <div className="flex items-center gap-3 mt-2">
+          <img
+            src="https://randomuser.me/api/portraits/men/35.jpg"
+            alt="David Martinez"
+            className="w-10 h-10 rounded-full"
+          />
+          <div>
+            <h4 className="text-sm font-semibold text-gray-900">David Martinez</h4>
+            <p className="text-xs text-gray-500">Adopted Max the Tabby Cat</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-white rounded-2xl shadow-lg p-5 w-80 flex flex-col justify-between">
+        {/* Stars */}
+        <div className="flex text-yellow-500 mb-2">
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+          <Star className="w-5 h-5 fill-yellow-500" />
+        </div>
+
+        {/* Review Text */}
+        <p className="text-gray-800 text-sm mb-4">
+          The adoption process was quick and transparent. I highly recommend them
+          if you're looking to give a pet a forever home.
+        </p>
+
+        {/* Divider */}
+        <hr className="my-2" />
+
+        {/* User Info */}
+        <div className="flex items-center gap-3 mt-2">
+          <img
+            src="https://randomuser.me/api/portraits/women/68.jpg"
+            alt="Sophia Lee"
+            className="w-10 h-10 rounded-full"
+          />
+          <div>
+            <h4 className="text-sm font-semibold text-gray-900">Sophia Lee</h4>
+            <p className="text-xs text-gray-500">Adopted Coco the Parrot</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+  );
+}
