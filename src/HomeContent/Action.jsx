@@ -14,7 +14,7 @@ const Action = () => {
                         </div>
                         <p className="text-center text-gray-800 mb-2">Opening my heart to adoption brought endless joy to my life.</p>
                         <p className="font-bold text-[#0A303A]">Emma Johnson</p>
-                        <p className="text-sm text-gray-600">Adoptive Pet Parent</p>
+                        <p className="text-sm text-gray-600">Adoptive Pet Parents</p>
                     </div>
 
                     <div className="p-3 bg-white rounded-2xl shadow-md hover:border-[#0A303A] border-white drop-shadow-lg duration-300 border-2 flex flex-col items-center">
